@@ -71,11 +71,11 @@ wget -O $HOME/.story/story/config/addrbook.json  https://server-3.itrocket.net/t
 ```
 
 **set custom ports in story.toml file**
-``
+```
 sed -i.bak -e "s%:1317%:${STORY_PORT}317%g;
 s%:8551%:${STORY_PORT}551%g" $HOME/.story/story/config/story.toml
-````
-
+```
+s
 **set custom ports in config.toml file**
 ```
 sed -i.bak -e "s%:26658%:${STORY_PORT}658%g;
@@ -91,7 +91,8 @@ sed -i -e "s/prometheus = false/prometheus = true/" $HOME/.story/story/config/co
 sed -i -e "s/^indexer *=.*/indexer = \"null\"/" $HOME/.story/story/config/config.toml
 ```
 
-# create geth servie file
+**create geth servie file**
+```
 sudo tee /etc/systemd/system/story-geth.service > /dev/null <<EOF
 [Unit]
 Description=Story Geth daemon
@@ -107,6 +108,7 @@ LimitNOFILE=65535
 [Install]
 WantedBy=multi-user.target
 EOF
+```
 
 # create story service file
 sudo tee /etc/systemd/system/story.service > /dev/null <<EOF
