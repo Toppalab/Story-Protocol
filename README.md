@@ -75,7 +75,7 @@ wget -O $HOME/.story/story/config/addrbook.json  https://server-3.itrocket.net/t
 sed -i.bak -e "s%:1317%:${STORY_PORT}317%g;
 s%:8551%:${STORY_PORT}551%g" $HOME/.story/story/config/story.toml
 ```
-s
+
 **set custom ports in config.toml file**
 ```
 sed -i.bak -e "s%:26658%:${STORY_PORT}658%g;
@@ -147,11 +147,12 @@ curl https://server-3.itrocket.net/testnet/story/story_2024-12-17_1323418_snap.t
 mv $HOME/.story/story/priv_validator_state.json.backup $HOME/.story/story/data/priv_validator_state.json
 ```
 
-# delete geth data and unpack Geth snapshot
+**delete geth data and unpack Geth snapshot**
+```
 rm -rf $HOME/.story/geth/odyssey/geth/chaindata
 mkdir -p $HOME/.story/geth/odyssey/geth
 curl https://server-3.itrocket.net/testnet/story/geth_story_2024-12-17_1323418_snap.tar.lz4 | lz4 -dc - | tar -xf - -C $HOME/.story/geth/odyssey/geth
-
+```
 # enable and start geth, story
 sudo systemctl daemon-reload
 sudo systemctl enable story story-geth
