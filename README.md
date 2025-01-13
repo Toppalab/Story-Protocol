@@ -229,11 +229,13 @@ sudo systemctl enable story
 sudo systemctl restart story && sudo journalctl -u story -f
 ```
 
-Congrats, you are now using Cosmovisor! 🎊
+**Congrats, you are now using Cosmovisor! 🎊**
 Create validator
 View your validator key
-
+```
 story validator export
+```
+
 Export EVM private key
 
 story validator export --export-evm-key
